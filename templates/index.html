@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/index.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="logo">
+        <img src="static/images/Logo.Jpg" width="15%" height="15%">
+    </div>
+    <div class="MatchDetector">
+        <form method="post" class="MyForm">
+        <div style="display: flex;">
+            <div class="HomeDiv" id="HomeBackGround">
+                <p style="font-size: x-large; color: white;" id="HomeWin">Home Team</p>
+                <img class="flags" id="HomeFlag" src={{HomeFlag}} alt="">
+                <select id="Home" onchange="GetHomeAwayValues()" name="HomeTeam">
+                    {%for i in range(0, 29)%}
+                    <option  value='{{teams[i]}}'>{{teams[i]}}</option>
+                    {%endfor%}
+                </select>
+            </div>
+            <div><p style="font-size: xx-large;margin-top: 300%;">VS</p></div>
+            <div class="AwayDiv" id="AwayBackGround">
+                <p style="font-size: x-large; color: white;" id="AwayWin">Away Team</p>
+                <img class="flags" id="AwayFlag" src={{AwayFlag}} alt="">
+                <select onchange="GetHomeAwayValues()" id="Away" name="AwayTeam">
+                    {%for i in range(0, 29)%}
+                        <option  value= '{{teams[i]}}'>{{teams[i]}}</option>
+                    
+                    {%endfor%}
+                </select>
+            </div>
+        </div>
+        </form>
+    <button onclick="GetHomeAwayWinner(); " >Predict</button>
+
+    </div>
+    <script src="static/JS/jquery-3.6.3.js"></script>
+    <script src="static/JS/GetFlags.js" ></script>
+    <script src="static/JS/GetWinner.js"></script>
+</body>
+</html>
